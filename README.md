@@ -4,6 +4,10 @@
 
 O basiC++ é um compilador desenvolvido para a linguagem de programação basiC++. Ele é capaz de analisar, interpretar e executar programas escritos em basiC++ com a extensão `.bpp`.
 
+## Baixando a Release v0.1
+
+Você pode baixar a release v0.1 deste projeto diretamente do GitHub. Vá para a página de [Releases](https://github.com/marcos-bah/basic-plus-plus/releases/tag/v0.1) do repositório, localize a release v0.1 na lista de releases e clique em `Source code (zip)` ou `Source code (tar.gz)` para baixar o código fonte da release. Descompacte o arquivo baixado para acessar o código fonte da release v0.1.
+
 ### Configuração do Ambiente
 
 Para configurar o ambiente Python, siga as etapas abaixo:
