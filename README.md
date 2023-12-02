@@ -58,9 +58,26 @@ Para compilar e executar este programa, você pode usar o seguinte comando:
 python basic.py exemplo.bpp
 ```
 
+# Uso do Makefile
+
+Este projeto usa um Makefile para simplificar a execução do script `basic.py`. Para usar o Makefile, você precisa ter o `make` instalado no seu sistema.
+
+## Executando o script `basic.py`
+
+Para executar o script `basic.py` com um arquivo `.bpp`, use o seguinte comando:
+
+```bash
+make -B bpp caminho_relativo/nome_do_programa.bpp
+```
+
 ### Executando Exemplos
 
 Para executar os exemplos fornecidos, execute o seguinte comando:
+
+```bash
+make -B bpp samples/nome_do_exemplo.bpp
+```
+ou
 
 ```bash
 python basic.py samples/nome_do_exemplo.bpp
