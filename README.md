@@ -29,13 +29,13 @@ Para configurar o projeto em sua máquina local, siga as etapas abaixo:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu_usuario/seu_repositorio.git
+git clone https://github.com/marcos-bah/basic-plus-plus.git
 ```
 
 2. Navegue até o diretório do projeto:
 
 ```bash
-cd seu_repositorio
+cd basic-plus-plus
 ```
 
 ### Exemplo de Código
