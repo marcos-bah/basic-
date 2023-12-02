@@ -1,0 +1,6 @@
+start { 
+    # Hello World
+
+    write("Hello World!");
+    write("\n");
+} end

@@ -1,0 +1,18 @@
+start { 
+    # Calcular o fatorial de n
+
+    function fatorial(){
+        int n = read("Digite um valor para n: ");
+        int result = 1;
+
+        while (n > 1) {
+            result = result * n;
+            n = n - 1;
+        }
+
+        write("O fatorial é: " + result + "\n");
+    }
+
+    fatorial();
+
+} end

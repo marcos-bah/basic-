@@ -1,0 +1,22 @@
+start { 
+    # Calcular a sequência de Fibonacci até n
+
+    function fibonacci(){
+        int n = read("Digite um valor para n: ");
+        int a = 0;
+        int b = 1;
+        int temp;
+
+        while (n > 0) {
+            write(a + ", ");
+            temp = a;
+            a = b;
+            b = temp + b;
+            n = n - 1;
+        }
+        write("\n");
+    }
+
+    fibonacci();
+
+} end

@@ -1,0 +1,17 @@
+start { 
+    # Calcular a media entre dois valres
+
+    function calcula(){
+        int x = read("Digite um valor para x: ");
+        int y;
+        y = read("Digite um valor para y: ");
+        int media;
+        media = (x + y) / 2;
+
+        write("A média é: " + media);
+        write("\n");
+    }
+
+    calcula();
+
+} end
