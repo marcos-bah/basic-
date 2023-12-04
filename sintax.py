@@ -79,6 +79,7 @@ def p_comentario(p):
 def p_declaracao(p): 
     '''declaracao : type VARIAVEL
                   | type VARIAVEL IGUAL expression
+                  | type VARIAVEL IGUAL funcao_chamada
                   | type VARIAVEL IGUAL ENTRADA ABRE_PARENTESES STRING FECHA_PARENTESES
                   | type VARIAVEL IGUAL ENTRADA ABRE_PARENTESES expression FECHA_PARENTESES
     '''
@@ -95,17 +96,27 @@ def p_declaracao(p):
     
 def p_funcao(p):
     '''funcao : FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES lista_codigo FINAL_DELIMITADOR_CHAVES
+              | FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES lista_codigo RETORNO valTipo end FINAL_DELIMITADOR_CHAVES
+              | FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES lista_codigo RETORNO VARIAVEL end FINAL_DELIMITADOR_CHAVES
+              | FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES lista_codigo RETORNO expression end FINAL_DELIMITADOR_CHAVES
+              | FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES RETORNO valTipo end FINAL_DELIMITADOR_CHAVES
+              | FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES RETORNO VARIAVEL end FINAL_DELIMITADOR_CHAVES
+              | FUNCAO VARIAVEL ABRE_PARENTESES FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES RETORNO expression end FINAL_DELIMITADOR_CHAVES
     ''' 
     add_funcao(p[2])
     if(str(p[6])==""):
         raise Exception("(!) Função " + str(p[2]) + " não possui corpo")
-    p[0] = f"def {p[2]}():{indent_lines(p[6], ident)}"
     
-
+    if(len(p) > 7):
+        if (str(p[6]) == "return"):
+             p[0] = f"def {p[2]}():"+ident+f"return {p[7]}"
+        else:
+            p[0] = f"def {p[2]}():{indent_lines(p[6], ident)}"+ident+f"return {p[8]}"
+    else:
+        p[0] = f"def {p[2]}():{indent_lines(p[6], ident)}"
     
 def p_funcao_chamada(p):
     '''funcao_chamada : VARIAVEL ABRE_PARENTESES FECHA_PARENTESES
-    
     ''' 
     existe_funcao(p[1])
     p[0] = f"{p[1]}()"
@@ -113,6 +124,7 @@ def p_funcao_chamada(p):
 
 def p_atribuicao(p): 
     '''atribuicao : VARIAVEL IGUAL expression
+                  | VARIAVEL IGUAL funcao_chamada
                   | VARIAVEL IGUAL valTipo
                   | VARIAVEL IGUAL ENTRADA ABRE_PARENTESES STRING FECHA_PARENTESES
                   | VARIAVEL IGUAL ENTRADA ABRE_PARENTESES expression FECHA_PARENTESES

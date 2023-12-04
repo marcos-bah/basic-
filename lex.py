@@ -25,6 +25,7 @@ reserved = {
    'string' : 'TIPO_STRING',
    'function' : 'FUNCAO',
    'return' : 'RETORNO',
+   'loop': 'LOOP',
 }
 
 # Lista para os nomes dos tokens. Esta parte é sempre requerida pela Biblioteca PLY
@@ -119,6 +120,7 @@ t_TIPO_BOOLEAN          = r'boolean'
 t_TIPO_STRING           = r'string'
 t_FUNCAO                = r'function'
 t_RETORNO               = r'return'
+t_LOOP                  = r'loop'
 # t_TIPO_PREMISSA         = r'premissa_t'
 
 t_SOMA = r'\+'
