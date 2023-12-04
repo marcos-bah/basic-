@@ -8,8 +8,13 @@ start {
         int media;
         media = (x + y) / 2;
 
-        write("A média é: " + media);
-        write("\n");
+        if (media >= 6){
+            write("A média é maior ou igual a 6" + "\n");
+        } else {
+            write("A média é menor que 6" + "\n");
+        }
+
+        write("A média é: " + media + "\n");
     }
 
     calcula();

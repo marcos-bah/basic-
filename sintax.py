@@ -40,8 +40,9 @@ def p_main(p):
     '''
     with open(f"{arquivo}.py", "w") as file0, open(f"./logs/erros_{arquivo}.txt", "w") as file1:
         file0.write(f"{p[3]}")
-        file1.write(f"")
+        #file1.write(f"")
     file0.close()
+    file1.close()
 
 def p_codigo(p): 
     '''codigo   : condicional

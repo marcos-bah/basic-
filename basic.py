@@ -21,5 +21,5 @@ isempty = os.stat(f"./logs/erros_{arquivo}.txt").st_size == 0
 if(isempty):
     call("python " + f"{arquivo}.py", shell=True)
 else:
-    print("(!) Erros sintáticos encontrados. Verifique o arquivo de erros.")
+    print("(!) Erros sintáticos encontrados.")
     sys.exit(0)

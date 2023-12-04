@@ -1,5 +1,11 @@
 env
 __pycache__
-logs/*
+logs/erros_*
+*teste*
 *.out
 parsetab.py
+
+media.py
+fibo.py 
+helloworld.py
+fatorial.py
