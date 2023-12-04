@@ -10,9 +10,10 @@ start {
             n = n - 1;
         }
 
-        write("O fatorial é: " + result + "\n");
+        return result;
     }
 
-    fatorial();
+    int fat = fatorial();
 
+    write("O fatorial de n é: " + fat + "\n");
 } end
