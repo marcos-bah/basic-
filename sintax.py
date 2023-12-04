@@ -52,6 +52,7 @@ def p_codigo(p):
                 | saida_string end
                 | declaracao end
                 | while
+                | loop
                 | comentario
                 | funcao
                 | funcao_chamada end
@@ -353,6 +354,14 @@ def p_condicional(p):
 
 def p_while(p): 
     '''while : WHILE ABRE_PARENTESES comparacao FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES lista_codigo FINAL_DELIMITADOR_CHAVES
+    '''
+    
+    tmp = p[6].replace("\n", ident)
+
+    p[0] = f'''while {p[3]}:{ident}{tmp}'''
+    
+def p_loop(p): 
+    '''loop : LOOP ABRE_PARENTESES comparacao FECHA_PARENTESES COMECO_DELIMITADOR_CHAVES lista_codigo FINAL_DELIMITADOR_CHAVES
     '''
     
     tmp = p[6].replace("\n", ident)
